@@ -1,0 +1,39 @@
+#!/bin/sh
+debug=no
+die () {
+  echo "*** configure: $*" 1>&2
+  exit 1
+}
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    -h) echo "usage: configure [-g][-h]";;
+    -g) debug=yes;;
+    *) die "unknown command line option (try '-h')";;
+  esac
+  shift
+done
+
+echo "debug ... $debug"
+
+echo -n "CC ..."
+CC=gcc
+echo " $CC"
+
+echo -n "CFLAGS ..."
+CFLAGS="-Wall"
+if [ $debug = yes ]
+then
+  CFLAGS="$CFLAGS -g3"
+else
+  CFLAGS="$CFLAGS -O3 -DNDEBUG"
+fi
+echo " $CFLAGS"
+
+echo -n "makefile ..."
+rm -f makefile
+sed \
+  -e "s,@CC@,$CC,g" \
+  -e "s,@CFLAGS@,$CFLAGS,g" \
+makefile.in > makefile
+echo " done"

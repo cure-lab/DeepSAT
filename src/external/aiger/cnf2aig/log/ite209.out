@@ -1,0 +1,9 @@
+[cnf2aig] reading 'log/ite209.in'
+[cnf2aig] found 'p cnf 4 4'
+[cnf2aig] parsed 4 clauses
+[cnf2aig] found 1 ite gates
+[cnf2aig] extracted 1 gates covering 4 clauses (100.0%)
+[cnf2aig] 1 forced defined variables (25.0%)
+[cnf2aig] 1 forced roots (25.0%)
+[cnf2aig] 3 still floating variables (75.0%)
+[cnf2aig] allocated 0.0 MB

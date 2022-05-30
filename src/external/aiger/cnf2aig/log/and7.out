@@ -1,0 +1,10 @@
+[cnf2aig] reading 'log/and7.in'
+[cnf2aig] found 'p cnf 3 6'
+[cnf2aig] parsed 6 clauses
+[cnf2aig] found 2 duplicated clauses
+[cnf2aig] kept 4 clauses
+[cnf2aig] found 3 and gates (arity 2.0)
+[cnf2aig] extracted 3 gates from 4 clauses (100.0%)
+[cnf2aig] 3 forced gate outputs (100.0%)
+[cnf2aig] 3 forced gate inputs (100.0%)
+[cnf2aig] allocated 0.0 MB

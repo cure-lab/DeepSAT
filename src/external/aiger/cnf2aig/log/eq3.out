@@ -1,0 +1,7 @@
+[cnf2aig] reading 'log/eq3.in'
+[cnf2aig] found 'p cnf 2 2'
+[cnf2aig] parsed 2 clauses
+[cnf2aig] found 1 not gates
+[cnf2aig] extracted 1 gates from 2 clauses (100.0%)
+[cnf2aig] 2 still floating variables (100.0%)
+[cnf2aig] allocated 0.0 MB

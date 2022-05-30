@@ -1,0 +1,45 @@
+#!/bin/sh
+
+print () {
+  file=ite${i}.in
+  rm -f $file
+  echo "p cnf 4 4" > $file
+  echo "`expr 0 - $l` `expr 0 - $c` `expr 0 + $t` 0" >> $file
+  echo "`expr 0 + $l` `expr 0 - $c` `expr 0 - $t` 0" >> $file
+  echo "`expr 0 - $l` `expr 0 + $c` `expr 0 + $e` 0" >> $file
+  echo "`expr 0 + $l` `expr 0 + $c` `expr 0 - $e` 0" >> $file
+}
+
+i=1
+for l in -1 -2 -3 -4 1 2 3 4
+do
+  for c in -1 -2 -3 -4 1 2 3 4
+  do
+    [ $l = $c ] && continue;
+    [ $l = -$c ] && continue;
+    [ -$l = $c ] && continue;
+    for t in -1 -2 -3 -4 1 2 3 4
+    do
+      [ $l = $t ] && continue;
+      [ $l = -$t ] && continue;
+      [ -$l = $t ] && continue;
+      [ $c = $t ] && continue;
+      [ $c = -$t ] && continue;
+      [ -$c = $t ] && continue;
+      for e in -1 -2 -3 -4 1 2 3 4
+      do
+	[ $l = $e ] && continue;
+	[ $l = -$e ] && continue;
+	[ -$l = $e ] && continue;
+	[ $c = $e ] && continue;
+	[ $c = -$e ] && continue;
+	[ -$c = $e ] && continue;
+	[ $t = $e ] && continue;
+	[ $t = -$e ] && continue;
+	[ -$t = $e ] && continue;
+	print
+	i=`expr $i + 1`
+      done
+    done
+  done
+done

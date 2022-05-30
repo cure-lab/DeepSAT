@@ -1,0 +1,142 @@
+#!/bin/sh
+
+die () {
+  echo "*** ./test: $*" 1>&2
+  exit 1
+}
+
+[ -x cnf2aig ] || die "./cnf2aig not found"
+
+tc () {
+  base=$1
+  shift
+  inp=log/${base}.in
+  [ -f $inp ] || die "$inp not found"
+  log=log/${base}.log
+  err=log/${base}.err
+  rm -f $log
+  echo -n "$base"
+  ./cnf2aig $inp 1>$log 2>$err
+  a="`picosat -n $inp|awk '{print $2}'`"
+  b="`aigtocnf $log|picosat -n|awk '{print $2}'`"
+  echo -n " $a $b"
+  if [ X"$a" = X"$b" ]
+  then
+    ok=`expr $ok + 1`
+    printf "\r"
+    echo -n "                                               "
+    printf "\r"
+  else
+    failed=`expr $failed + 1`
+    echo
+  fi
+}
+
+ok=0
+failed=0
+
+tc empty
+tc unit1
+tc unit2
+tc eq1
+tc eq2
+tc eq3
+tc and1
+tc and2
+tc and3
+tc and4
+tc and5
+tc and6
+tc xor1
+tc and7
+tc xor2
+tc xor3
+tc ite1
+tc ite1
+tc ite2
+tc ite3
+tc ite4
+tc ite5
+tc ite6
+tc ite7
+tc ite8
+tc ite9
+tc twolevel1
+tc cycle1
+tc dag1
+tc xor1and2
+tc twolevel2
+tc satand
+tc satnand
+tc sat0
+
+tc and1
+tc and2
+tc and3
+tc and4
+tc and5
+tc and6
+tc and7
+tc or1
+tc cycle1
+tc dag1
+tc empty
+tc eq1
+tc eq2
+tc eq3
+tc eq4
+tc eq5
+
+tc sat0
+tc sat1
+tc sat2
+tc sat3
+tc sat4
+tc sat5
+tc sat6
+tc sat7
+tc sat8
+tc sat9
+tc sat10
+tc sat11
+tc sat12
+tc sat13
+tc satand
+tc satnand
+tc twolevel1
+tc twolevel2
+tc unit1
+tc unit2
+tc xor1and2
+tc xor1
+tc xor2
+tc xor3
+
+tc reg1
+
+tc prime4
+tc prime9
+tc prime25
+tc prime49
+tc prime121
+tc prime169
+tc prime289
+tc prime361
+tc prime529
+tc prime841
+tc prime961
+tc prime1369
+tc prime1681
+tc prime1849
+tc prime2209
+tc prime65537
+
+tc add2
+tc add4
+tc add8
+tc add16
+tc add32
+tc add64
+tc add128
+
+echo "$ok ok, $failed failed"

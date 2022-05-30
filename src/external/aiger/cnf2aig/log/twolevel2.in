@@ -1,0 +1,11 @@
+c two level representation of xor
+p cnf 5 9
+-3 1 0
+-3 2 0
+3 -1 -2 0
+-4 -1 0
+-4 -2 0
+4 1 2 0
+-5 3 0
+-5 4 0
+5 -3 -4 0

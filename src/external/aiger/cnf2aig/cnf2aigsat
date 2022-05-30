@@ -1,0 +1,10 @@
+#!/bin/sh
+ls -l $1
+aig=/tmp/cnf2aig$$.aig
+cnf=/tmp/cnf2aig$$.cnf
+trap "rm -f $aig $cnf" 1 2 3 6 9 11 15
+/home/biere/src/cnf2aig/cnf2aig $1 $aig
+ls -l $aig
+/home/biere/src/aiger/aigtocnf $aig $cnf
+ls -l $cnf
+exec /home/biere/src/picosat/picosat -v -n $cnf
