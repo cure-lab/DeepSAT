@@ -1,6 +1,7 @@
 # DeepSAT: An EDA-Driven Learning Framework for SAT
 Code repository for the paper:  
 [**DeepSAT: An EDA-Driven Learning Framework for SAT**](https://arxiv.org/abs/2205.13745)
+
 [Min Li](https://cure-lab.github.io/people/min_li/index.html), [Zhengyuan Shi](https://cure-lab.github.io/people/zhengyuan_shi/index.html), Qiuxia Lai, [Sadaf Khan](https://khan-sadaf.github.io/) and [Qiang Xu](https://cure-lab.github.io/qiang_xu.html)
 
 
