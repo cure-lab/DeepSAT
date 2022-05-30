@@ -1,7 +1,8 @@
 # DeepSAT: An EDA-Driven Learning Framework for SAT
 Code repository for the paper:  
-**DeepSAT: An EDA-Driven Learning Framework for SAT**  
-Anonymous Author(s)
+[**DeepSAT: An EDA-Driven Learning Framework for SAT**](https://arxiv.org/abs/2205.13745)
+[Min Li](https://cure-lab.github.io/people/min_li/index.html), [Zhengyuan Shi](https://cure-lab.github.io/people/zhengyuan_shi/index.html), Qiuxia Lai, [Sadaf Khan](https://khan-sadaf.github.io/) and [Qiang Xu](https://cure-lab.github.io/qiang_xu.html)
+
 
 ## Abstract
 We present DeepSAT, a novel end-to-end learning framework for the Boolean satisfiability (SAT) problem. Unlike existing solutions trained on random SAT instances with relatively weak supervisions, we propose applying the knowledge of the well-developed electronic design automation (EDA) field for SAT solving. Specifically, we first resort to advanced logic synthesis algorithms to pre-process SAT instances into optimized and-inverter graphs (AIGs). By doing so, our training and test sets have a unified distribution, thus the learned model can generalize well to test sets of various sources of SAT instances. Next, we regard the distribution of SAT solutions being a product of conditional Bernoulli distributions. Based on this observation, we approximate the SAT solving procedure with a conditional generative model, leveraging a directed acyclic graph neural network with two polarity prototypes for conditional SAT modeling. To effectively train the generative model,  with the help of logic simulation tools, we obtain the probabilities of nodes in the AIG being logic `1' as rich supervisions. 
